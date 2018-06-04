@@ -16,6 +16,10 @@ workflows:
   spin-worker:
     jobs:
       - setup-aws:
-        context: AWS-pav-personal-account
+        filters:
+          branches:
+            only
+              - master
+        context: "AWS-pav-personal-account"
     
 
