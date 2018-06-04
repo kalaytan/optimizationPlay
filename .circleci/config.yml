@@ -18,7 +18,7 @@ workflows:
       - setup-aws:
           filters:
             branches:
-              only
+              only:
                 - master
           context: "AWS-pav-personal-account"
     
