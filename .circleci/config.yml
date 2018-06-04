@@ -1,0 +1,13 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: kalaytan/alpine_awscli
+    steps:
+      - checkout
+      - run:
+          name: Test
+          command: aws -v
+      - run:
+          name: Print the Current Time
+          command: date
