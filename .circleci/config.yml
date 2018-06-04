@@ -1,17 +1,21 @@
+version: 2
+  jobs:
+    setup-aws:
+      docker:
+        - image: kalaytan/alpine_awscli
+      steps:
+        - checkout
+        - run:
+            name: Show aws access key
+            command: echo "$AWS_ACCESS_KEY_ID"
+        - run:
+            name: Print the Current Time
+            command: date
 workflows:
   version: 2
   spin-worker:
+    context: AWS-pav-personal-account
     jobs:
-      setup-aws:
-        docker:
-          - image: kalaytan/alpine_awscli
-        context: AWS-pav-personal-account
-        steps:
-          - checkout
-          - run:
-              name: Show aws access key
-              command: echo "$AWS_ACCESS_KEY_ID"
-          - run:
-              name: Print the Current Time
-              command: date
+      - setup-aws
+    
 
