@@ -14,8 +14,8 @@ jobs:
 workflows:
   version: 2
   spin-worker:
-    #context: AWS-pav-personal-account
     jobs:
-      - setup-aws
+      - setup-aws:
+        context: AWS-pav-personal-account
     
 
